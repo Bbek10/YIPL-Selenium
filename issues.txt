@@ -1,0 +1,17 @@
+Here are the some of the issues i found in the form php file:
+
+1.  No file type validation when form mentions only PDFs are allowed.
+
+2. No uploaded file size validation i.e user could upload pdf of huge size, there should be a limit 5MB
+
+3. Error handling for `move_uploaded_file` as it could fail to uploaded
+
+4. Inconsistent naming as input field is named as "document" but script used "fileToUpload".
+    -which gave WARNING in my browser "Undefined array key "fileToUpload" " and "Trying to access array offset on value of type null on line 5" of the form.php 
+
+5. No restrictions on file overwriting - it allows the same file to be uploaded and overwritten.
+
+6. No sanitization of file name 
+
+7. Directory of the 'move_uploaded_file' i.e $target_dir is not checked 
+    if it exists or not
